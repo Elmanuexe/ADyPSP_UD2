@@ -1,19 +1,16 @@
 package triana.salesianos.E02.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Data
+@Getter @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "PAIS")
+@Table(name = "COUNTRY")
 public class Pais implements Serializable {
 
     @Id
@@ -21,6 +18,6 @@ public class Pais implements Serializable {
     @Basic(optional = false)
     private Integer id;
     @Basic(optional = false)
-    @Column(precision = 128)
+    @Column(name = "name",length = 128)
     private String nombre;
 }

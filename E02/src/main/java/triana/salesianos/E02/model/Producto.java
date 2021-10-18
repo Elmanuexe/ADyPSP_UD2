@@ -1,19 +1,16 @@
 package triana.salesianos.E02.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Data
+@Getter@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "PRODUCTO")
+@Table(name = "PRODUCT")
 public class Producto implements Serializable {
 
     @Id
@@ -21,10 +18,12 @@ public class Producto implements Serializable {
     @Column(nullable = false)
     private Integer id;
     @Basic(optional = false)
-    @Column(precision = 255)
+    @Column(name ="name",length = 255)
     private String nombre;
-    @Column(nullable = false)
+    @Column(name ="price",nullable = false)
     private Float precio;
+    @Column(name = "image")
     private String imagen;
+    @Column(name = "description")
     private String descripcion;
 }
